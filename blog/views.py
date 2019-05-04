@@ -12,7 +12,7 @@ def post_list(request):
 
 def post_browse(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    return HttpResponse(post.text)
+    return render(request, 'blog/post_browse.html', {'post': post})
 
 
 def post_edit(request, post_id=None):
