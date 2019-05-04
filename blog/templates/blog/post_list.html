@@ -30,7 +30,7 @@
           <th scope="col">ID</th>
             <th scope="col">日記タイトル</th>
             <th scope="col">書いた日時</th>
-{#          <th scope="col">操作</th>#}
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -39,10 +39,10 @@
           <th scope="row">{{ post.id }}</th>
           <td>{{ post.title }}</td>
           <td>{{ post.published_date }}</td>
-{#          <td>#}
-{#              <a href="{% url 'blog:post_mod' post_id=post.id %}" class="btn btn-outline-primary btn-sm">修正</a>#}
+          <td>
+              <a href="{% url 'blog:post_browse' post_id=post.id %}" class="btn btn-outline-primary btn-sm">読む</a>
 {#            <a href="{% url 'blog:post_del' post_id=post.id %}" class="btn btn-outline-danger btn-sm">削除</a>#}
-{#          </td>#}
+          </td>
         </tr>
         {% endfor %}
       </tbody>

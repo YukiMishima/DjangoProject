@@ -1,10 +1,10 @@
 {% extends "blog/base.html" %}
 {% load bootstrap4 %}
 
-{% block title %}日記の編集{% endblock title %}
+{% block title %}日記の閲覧{% endblock title %}
 
 {% block content %}
-    <h4 class="mt-4 mb-5 border-bottom">日記の編集</h4>
+    <h4 class="mt-4 mb-5 border-bottom">日記の閲覧</h4>
     {% if book_id %}
     <form action="{% url 'blog:post_mod' post_id=post_id %}" method="post">
     {% else %}

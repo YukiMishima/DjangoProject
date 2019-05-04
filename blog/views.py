@@ -10,6 +10,11 @@ def post_list(request):
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
+def post_browse(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    return HttpResponse(post.text)
+
+
 def post_edit(request, post_id=None):
     # return HttpResponse('日記の編集')
     if post_id:
