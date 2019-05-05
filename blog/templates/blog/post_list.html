@@ -23,7 +23,6 @@
 
 {% block content %}
     <h4 class="mt-4 border-bottom">日記の一覧</h4>
-{#    <a href="{% url 'blog:post_add' %}" class="btn btn-primary btn-sm my-3">追加</a>#}
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
@@ -41,10 +40,40 @@
           <td>{{ post.published_date }}</td>
           <td>
               <a href="{% url 'blog:post_browse' post_id=post.id %}" class="btn btn-outline-primary btn-sm">読む</a>
-{#            <a href="{% url 'blog:post_del' post_id=post.id %}" class="btn btn-outline-danger btn-sm">削除</a>#}
           </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
 {% endblock content %}
+
+{% block extra_css %}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+{% endblock extra_css %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
+    <script type="text/javascript">
+        var datas = {
+            "1530370800" : 1, // 2018/07/01
+            "1530457200" : 3, // 2018/07/02
+            "1533049200" : 5, // 2018/08/01
+            "1533135600" : 7, // 2018/08/02
+            "1546268400" : 10 // 2019/01/01
+        };
+        var cal = new CalHeatMap();
+        var now = new Date();
+        cal.init({
+            itemSelector: '#sample-heatmap',
+            domain: "month",
+            data: datas,
+            domainLabelFormat: '%Y-%m',
+            start: new Date(now.getFullYear(), now.getMonth() - 11),
+            cellSize: 10,
+            range: 12,
+            legend: [1, 3, 5, 7, 10],
+        });
+    </script>
+
+{% endblock extra_js %}
