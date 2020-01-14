@@ -1,4 +1,4 @@
 # myDiary
 
-you can write your diary in markdown format.  
-this diary visualize the progress of the day 
+You can write your diary in markdown format.  
+This diary visualize the progress of the day like github.
